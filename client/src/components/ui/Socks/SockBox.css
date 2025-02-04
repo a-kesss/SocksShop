@@ -1,0 +1,265 @@
+.my_box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: pulse 3s infinite ease-in-out;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  padding: 15px;
+  background: white;
+  transition: all 0.3s ease;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+@keyframes float {
+  0% {
+    .my_box {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 25px;
+      padding: 15px;
+      background: white;
+      transition: all 0.3s ease;
+      border: 3px solid transparent;
+      background-clip: padding-box;
+      position: relative;
+    }
+
+
+    .my_box::before {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96c93d);
+      z-index: -1;
+      border-radius: 27px;
+      animation: borderGradient 3s ease infinite;
+    }
+
+    .my_box::after {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96c93d);
+      z-index: -1;
+      border-radius: 27px;
+      filter: blur(5px);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .my_box:hover {
+      transform: translateY(-5px);
+    }
+
+    .my_box:hover::after {
+      opacity: 0.5;
+    }
+
+    @keyframes borderGradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+
+    .my_box > * {
+      position: relative;
+    }
+
+    .my_box > *::before,
+    .my_box > *::after {
+      content: '';
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      border: 2px solid #4ecdc4;
+      transition: all 0.3s ease;
+    }
+
+    .my_box > *::before {
+      top: 0;
+      left: 0;
+      border-right: 0;
+      border-bottom: 0;
+    }
+
+    .my_box > *::after {
+      bottom: 0;
+      right: 0;
+      border-left: 0;
+      border-top: 0;
+    }
+
+    .my_box:hover > *::before,
+    .my_box:hover > *::after {
+      width: 20px;
+      height: 20px;
+      border-color: #ff6b6b;
+    }
+
+    .my_box {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .my_box:hover {
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .my_box,
+    .my_box::before,
+    .my_box::after,
+    .my_box > *,
+    .my_box > *::before,
+    .my_box > *::after {
+      transition: all 0.3s ease;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.02);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .my_box:hover {
+      animation: pulse 2s infinite;
+    }
+
+    .my_box::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.1) 45%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0.1) 55%,
+        transparent 100%
+      );
+      transform: rotate(-45deg);
+      animation: shine 3s infinite;
+      opacity: 0;
+    }
+
+    .my_box:hover::after {
+      opacity: 1;
+    }
+
+    @keyframes shine {
+      0% {
+        transform: translateX(-100%) rotate(-45deg);
+      }
+      100% {
+        transform: translateX(100%) rotate(-45deg);
+      }
+    }
+
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.my_box::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.my_box * {
+  transition: all 0.3s ease;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.01);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.my_box:hover::after {
+  opacity: 1;
+}
+
+.my_box:hover {
+  transform: scale(1.02);
+}
+
+.my_svg {
+  position: absolute;
+}
+
+.Container {
+  position: relative;
+}
+
+.my_image1 {
+  top: 15%;
+  left: 51%;
+  position: absolute;
+  object-fit: contain;
+}
+
+.my_image2 {
+  top: 15%;
+  left: 47%;
+  position: absolute;
+  object-fit: contain;
+}
+
+.my_image3 {
+  top: 15%;
+  left: 44%;
+  position: absolute;
+  object-fit: contain;
+}
+
+.my_image4 {
+  top: 15%;
+  left: 50%;
+  position: absolute;
+  object-fit: contain;
+}
